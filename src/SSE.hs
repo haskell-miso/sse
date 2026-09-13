@@ -90,7 +90,7 @@ emptyModel :: Int -> Model
 emptyModel = Model mempty [] False emptyEventSource
 -----------------------------------------------------------------------------
 sseComponent :: Int -> Component () () Model Action
-sseComponent box = component (emptyModel box) updateModel (\_ _ -> viewModel)
+sseComponent box = component (emptyModel box) updateModel viewModel
   where
     updateModel = \case
       Connect ->
