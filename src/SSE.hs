@@ -127,7 +127,7 @@ sseComponent box = component (emptyModel box) updateModel (\_ _ -> viewModel)
       Clear ->
         received .= []
 -----------------------------------------------------------------------------
-viewModel :: Model -> View () Model Action
+viewModel :: Model -> View () () Model Action
 viewModel m =
   div_
   [ className "sse-box" ]
@@ -195,7 +195,7 @@ viewModel m =
       else messageHeader (m ^. received)
     ]
 -----------------------------------------------------------------------------
-messageHeader :: [Message] -> [ View context model action ]
+messageHeader :: [Message] -> [ View context props model action ]
 messageHeader messages = concat
   [ [ div_
       [ class_ "message-header" ]
