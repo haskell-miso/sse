@@ -43,7 +43,7 @@ main :: IO ()
 main = startApp (defaultEvents <> keyboardEvents) app
 -----------------------------------------------------------------------------
 app :: Component () () Model Action
-app = (component emptyModel update_ (\_ _ -> appView))
+app = (component emptyModel update_ appView)
   { mailbox = checkMail Close (const NoOp)
 #ifndef WASM
   , styles = [ Href "assets/style.css" True ]
